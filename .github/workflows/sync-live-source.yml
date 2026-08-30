@@ -1,0 +1,55 @@
+name: Sync live MOTION source
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-live-source.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch deployed MOTION source
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT=/tmp/motion-source
+          mkdir -p "$ROOT/assets"
+          cp README.md "$ROOT/README.md"
+          cp .gitignore "$ROOT/.gitignore"
+          fetch(){ curl -fsSL --retry 3 --connect-timeout 15 "$1" -o "$2"; }
+          fetch 'https://motion.seekblack.cn/' "$ROOT/index.html"
+          fetch 'https://motion.seekblack.cn/404.html' "$ROOT/404.html"
+          fetch 'https://motion.seekblack.cn/assets/app.css' "$ROOT/assets/app.css"
+          fetch 'https://motion.seekblack.cn/assets/app.js' "$ROOT/assets/app.js"
+          fetch 'https://motion.seekblack.cn/assets/favicon.svg' "$ROOT/assets/favicon.svg"
+          fetch 'https://motion.seekblack.cn/assets/icon-192.png' "$ROOT/assets/icon-192.png"
+          fetch 'https://motion.seekblack.cn/assets/icon-512.png' "$ROOT/assets/icon-512.png"
+          fetch 'https://motion.seekblack.cn/manifest.webmanifest' "$ROOT/manifest.webmanifest"
+          fetch 'https://motion.seekblack.cn/robots.txt' "$ROOT/robots.txt"
+          fetch 'https://motion.seekblack.cn/sw.js' "$ROOT/sw.js"
+          grep -q 'r6countdown' "$ROOT/index.html"
+          grep -q 'groupTimer' "$ROOT/assets/app.js"
+          test -s "$ROOT/assets/app.css"
+          test -s "$ROOT/assets/icon-512.png"
+
+      - name: Publish clean source tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rm -r --ignore-unmatch .
+          cp -a /tmp/motion-source/. .
+          git add -A
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'feat: publish complete MOTION R6 source'
+          git push origin main
