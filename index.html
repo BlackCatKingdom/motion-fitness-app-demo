@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#0b0c0f">
+  <meta name="motion-build" content="20260830-r6countdown">
+  <meta name="description" content="MOTION — SEEKBLACK 互动运动 App 概念体验。通过训练计划、训练过程、完成反馈与数据变化展示移动产品设计与状态管理能力。">
+  <meta property="og:title" content="MOTION — 中文互动运动 App Demo">
+  <meta property="og:description" content="由 SEEKBLACK 设计与开发的互动概念产品 Demo。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://motion.seekblack.cn/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="assets/app.css?v=20260830-r6countdown">
+  <title>MOTION — 中文互动运动 App Demo</title>
+</head>
+<body>
+  <!-- build: MOTION-R6-P0.5-COUNTDOWN-20260830 -->
+  <a class="skip-link" href="#app">跳到互动体验</a>
+
+  <div class="desktop-shell">
+    <header class="demo-brand">
+      <a class="motion-wordmark" href="#" data-action="go-home" aria-label="MOTION"><span class="motion-mark" aria-hidden="true"></span>MOTION</a>
+      <span class="concept-label">INDEPENDENT CONCEPT PROJECT</span>
+    </header>
+    <aside class="demo-copy">
+      <div>
+        <p class="eyebrow">INTERACTIVE PRODUCT DEMO / 04</p>
+        <h1>TRAIN.<br><span>TRACK.</span><br>REPEAT.</h1>
+        <p class="demo-lead">一款围绕两个核心问题设计的训练产品：<b>今天练什么？</b>以及<b>最近练得怎么样？</b></p>
+      </div>
+      <div class="demo-proof">
+        <div><small>CORE FLOW / 核心流程</small><strong>计划 → 训练 → 完成</strong></div>
+        <div><small>STATE / 状态反馈</small><strong>完成训练后数据实时更新</strong></div>
+        <div><small>BUILD / 构建方式</small><strong>响应式 Web App Demo</strong></div>
+      </div>
+    </aside>
+    <footer class="demo-footer">
+      <a href="https://seekblack.cn/work/motion/">查看 CASE STUDY ↗</a>
+      <span>SEEKBLACK 设计与开发</span>
+    </footer>
+  </div>
+
+  <main id="app" class="device-stage" aria-label="MOTION 互动运动 App 体验">
+    <section class="phone" id="phone">
+      <div class="phone-status" aria-hidden="true">
+        <span id="status-time">09:41</span>
+        <div class="status-icons" aria-hidden="true">
+          <svg class="status-icon status-signal" viewBox="0 0 18 12" focusable="false"><rect x="1" y="8" width="2.4" height="3" rx=".7"/><rect x="5.2" y="6" width="2.4" height="5" rx=".7"/><rect x="9.4" y="3.5" width="2.4" height="7.5" rx=".7"/><rect x="13.6" y="1" width="2.4" height="10" rx=".7"/></svg>
+          <svg class="status-icon status-wifi" viewBox="0 0 18 13" fill="none" focusable="false"><path d="M1.4 4.4C5.6.9 12.4.9 16.6 4.4"/><path d="M4.2 7.2c2.7-2.2 6.9-2.2 9.6 0"/><path d="M7.1 9.9c1.1-.9 2.7-.9 3.8 0"/><circle cx="9" cy="11.2" r="1" class="wifi-dot"/></svg>
+          <svg class="status-icon status-battery" viewBox="0 0 24 12" fill="none" focusable="false"><rect x="1" y="1.5" width="19" height="9" rx="2.2"/><path d="M22 4.2v3.6"/><rect class="battery-fill" x="3" y="3.5" width="14.5" height="5" rx="1"/></svg>
+        </div>
+      </div>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+      <div id="view" class="app-view" tabindex="-1"></div>
+
+      <div id="confirm-layer" class="confirm-layer" hidden role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+        <button class="confirm-backdrop" type="button" tabindex="-1" data-confirm-action="cancel" aria-label="关闭确认弹窗"></button>
+        <section class="confirm-card">
+          <p class="eyebrow-app">请确认</p>
+          <h2 id="confirm-title" data-confirm-title>确认操作？</h2>
+          <p data-confirm-copy></p>
+          <div class="confirm-actions">
+            <button class="btn btn-ghost" type="button" data-confirm-action="cancel" data-confirm-cancel>取消</button>
+            <button class="btn btn-primary" type="button" data-confirm-action="ok" data-confirm-ok>确认</button>
+          </div>
+        </section>
+      </div>
+
+      <nav id="bottom-nav" class="bottom-nav" aria-label="主要导航" hidden>
+        <button data-tab="home" aria-label="首页"><span data-icon="home"></span><small>首页</small></button>
+        <button data-tab="plan" aria-label="计划"><span data-icon="calendar"></span><small>计划</small></button>
+        <button data-tab="stats" aria-label="数据"><span data-icon="chart"></span><small>数据</small></button>
+        <button data-tab="history" aria-label="记录"><span data-icon="history"></span><small>记录</small></button>
+        <button data-tab="profile" aria-label="我的"><span data-icon="user"></span><small>我的</small></button>
+      </nav>
+    </section>
+  </main>
+
+  <noscript><div class="noscript">MOTION 互动体验需要启用 JavaScript。</div></noscript>
+  <script src="assets/app.js?v=20260830-r6countdown" defer></script>
+</body>
+</html>

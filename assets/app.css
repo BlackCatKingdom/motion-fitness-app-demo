@@ -1,0 +1,366 @@
+:root{
+  --ink:#101115;
+  --ink-2:#18191e;
+  --ink-3:#22242b;
+  --paper:#f5f3ee;
+  --paper-2:#e9e6df;
+  --muted:#85878e;
+  --muted-2:#b7b8bc;
+  --line:rgba(17,18,22,.1);
+  --orange:#ff6a2a;
+  --orange-2:#ff8d52;
+  --orange-soft:#fff0e8;
+  --green:#57d38c;
+  --red:#ff6e6e;
+  --radius:28px;
+  --shadow:0 35px 100px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+html{background:#0a0b0d;-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;background:#0a0b0d;min-height:100svh;-webkit-font-smoothing:antialiased}
+button,input{font:inherit}
+button{color:inherit}
+a{color:inherit;text-decoration:none}
+button,a{-webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid rgba(255,106,42,.45);outline-offset:3px}
+.skip-link{position:fixed;left:16px;top:-80px;z-index:10000;background:#fff;color:#000;padding:10px 14px;border-radius:10px}.skip-link:focus{top:16px}
+.desktop-shell{position:fixed;inset:0;color:#f4f2ed;pointer-events:none;overflow:hidden}
+.desktop-shell:before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 74% 48%,rgba(255,106,42,.16),transparent 26%),radial-gradient(circle at 18% 14%,rgba(255,255,255,.05),transparent 22%);pointer-events:none}
+.demo-brand{position:absolute;left:clamp(28px,4.5vw,72px);right:clamp(28px,4.5vw,72px);top:30px;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.12em;z-index:2}
+.motion-wordmark{font-size:18px;font-weight:900;letter-spacing:-.04em;pointer-events:auto}.motion-mark{display:inline-grid;place-items:center;background:var(--orange);color:#111;width:27px;height:27px;border-radius:9px;margin-right:9px;font-size:15px}.motion-mark:before{content:"M"}
+.concept-label{color:#73767e;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.demo-copy{position:absolute;left:clamp(28px,5vw,80px);top:50%;transform:translateY(-50%);width:min(36vw,520px);display:grid;gap:48px;z-index:1}
+.eyebrow{font:600 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.15em;color:var(--orange);margin:0 0 22px}.demo-copy h1{font-size:clamp(66px,7.1vw,124px);line-height:.76;letter-spacing:-.09em;margin:0;font-weight:900}.demo-copy h1 span{color:transparent;-webkit-text-stroke:1.4px #f4f2ed}.demo-lead{max-width:38ch;color:#96989f;line-height:1.65;font-size:clamp(14px,1.1vw,18px);margin:30px 0 0}.demo-lead b{color:#e9e7e2;font-weight:650}
+.demo-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-top:1px solid #282a2f;padding-top:18px}.demo-proof div{display:grid;gap:7px}.demo-proof small{font:600 9px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;color:#666a72}.demo-proof strong{font-size:11px;line-height:1.35;color:#c7c8cb;font-weight:600}
+.demo-footer{position:absolute;left:clamp(28px,4.5vw,72px);right:clamp(28px,4.5vw,72px);bottom:28px;display:flex;justify-content:space-between;font:600 10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;color:#61646c}.demo-footer a{pointer-events:auto;color:#bbbcc0}.demo-footer a:hover{color:var(--orange)}
+.device-stage{min-height:100svh;display:grid;place-items:center;padding:80px 3vw 60px;margin-left:44vw;position:relative;z-index:3}
+.phone{width:min(390px,29vw);height:min(844px,82svh);min-height:650px;background:var(--paper);border-radius:48px;box-shadow:var(--shadow),0 0 0 1px rgba(255,255,255,.14),0 0 0 9px #15161a;overflow:hidden;position:relative;display:flex;flex-direction:column}
+.phone:before{content:"";position:absolute;z-index:20;top:8px;left:50%;transform:translateX(-50%);width:112px;height:25px;border-radius:18px;background:#0a0b0d;pointer-events:none}
+.phone-status{height:40px;flex:0 0 40px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 22px 7px;position:relative;z-index:10;font-size:10px;font-weight:750;letter-spacing:.02em}.status-icons{display:flex;align-items:center;gap:5px}.signal{width:12px;height:8px;background:linear-gradient(to right,#111 0 20%,transparent 20% 27%,#111 27% 47%,transparent 47% 54%,#111 54% 74%,transparent 74% 81%,#111 81%);clip-path:polygon(0 100%,0 65%,20% 65%,20% 48%,47% 48%,47% 28%,74% 28%,74% 0,100% 0,100% 100%)}.wifi{width:12px;height:8px;border-top:2px solid #111;border-radius:50%}.battery{width:15px;height:8px;border:1.5px solid #111;border-radius:2px;position:relative}.battery:after{content:"";position:absolute;right:-3px;top:2px;width:2px;height:3px;background:#111}.battery:before{content:"";position:absolute;inset:1.4px 2px 1.4px 1.4px;background:#111;border-radius:1px}
+.app-view{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;padding-bottom:92px;position:relative;overscroll-behavior:contain}.app-view::-webkit-scrollbar{display:none}.app-view.no-nav{padding-bottom:0}
+.bottom-nav{position:absolute;z-index:30;left:10px;right:10px;bottom:10px;height:74px;border-radius:26px;background:rgba(17,18,22,.96);backdrop-filter:blur(18px);display:grid;grid-template-columns:repeat(5,1fr);padding:8px 6px max(8px,env(safe-area-inset-bottom));box-shadow:0 14px 28px rgba(0,0,0,.25)}.bottom-nav[hidden]{display:none}.bottom-nav button{border:0;background:none;color:#74777f;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;cursor:pointer}.bottom-nav button.active{color:#fff}.bottom-nav button.active [data-icon]{color:var(--orange)}.bottom-nav small{font-size:9px;font-weight:700;letter-spacing:.01em}.icon{width:20px;height:20px;display:inline-block}
+.toast{position:absolute;z-index:80;left:50%;top:52px;transform:translate(-50%,-12px);max-width:calc(100% - 36px);background:#111216;color:#fff;padding:10px 14px;border-radius:14px;font-size:11px;font-weight:650;opacity:0;pointer-events:none;transition:.28s ease;white-space:nowrap;box-shadow:0 12px 30px rgba(0,0,0,.25)}.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* shared app UI */
+.screen{padding:18px 18px 26px;min-height:100%}.screen.dark{background:#111216;color:#f6f4ef}.screen.orange{background:var(--orange);color:#111216}.screen-title-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.screen-title-row h2{margin:0;font-size:28px;letter-spacing:-.055em}.eyebrow-app{font:700 9px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;color:#85878e;text-transform:uppercase}.dark .eyebrow-app{color:#777a82}.section-gap{margin-top:24px}.card{border-radius:22px;background:#fff;padding:18px;border:1px solid var(--line)}.dark .card{background:#1c1e23;border-color:#2a2c33}.card.soft{background:#ece9e2}.orange-card{background:var(--orange);color:#111216;border:0}.row{display:flex;align-items:center}.between{justify-content:space-between}.muted{color:#8a8c92}.dark .muted{color:#8d9098}.mini{font-size:11px}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;background:#eceae4;padding:7px 10px;font-size:9px;font-weight:750}.dark .pill{background:#26282f;color:#c8c9cd}.dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}.btn{border:0;border-radius:17px;min-height:52px;padding:0 18px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn-primary{background:#111216;color:#fff}.btn-orange{background:var(--orange);color:#111216}.btn-ghost{background:#ece9e2;color:#111216}.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.18);color:#fff}.btn-wide{width:100%}.btn-small{min-height:38px;border-radius:12px;font-size:11px;padding:0 13px}.link-button{border:0;background:none;padding:0;color:var(--orange);font-size:11px;font-weight:800;cursor:pointer}.icon-btn{width:40px;height:40px;border:0;border-radius:14px;background:#e9e6df;display:grid;place-items:center;cursor:pointer}.dark .icon-btn{background:#24262d;color:#fff}.avatar{width:42px;height:42px;border-radius:15px;background:#111216;color:#fff;display:grid;place-items:center;font-weight:900;font-size:12px}.avatar.orange{background:var(--orange);color:#111216}.tag{padding:6px 8px;border-radius:9px;background:#f0eee8;font-size:9px;font-weight:750}.dark .tag{background:#292b31;color:#bbbcc1}
+
+/* onboarding */
+.onboarding{height:100%;min-height:610px;display:flex;flex-direction:column;padding:24px 20px 20px;background:#111216;color:#f6f4ef;position:relative;overflow:hidden}.onboarding:after{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:var(--orange);filter:blur(0);right:-160px;top:100px;opacity:.95}.onboarding-top{display:flex;justify-content:space-between;position:relative;z-index:2}.onboarding-logo{font-weight:900;letter-spacing:-.05em}.onboarding-logo i{display:inline-block;width:9px;height:9px;border-radius:3px;background:var(--orange);margin-right:7px;transform:rotate(12deg)}.onboarding-visual{flex:1;display:grid;place-items:center;position:relative;z-index:2}.orb{width:210px;height:210px;border-radius:50%;position:relative;display:grid;place-items:center}.orb:before,.orb:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.24)}.orb:before{inset:10px}.orb:after{inset:34px}.orb strong{font-size:72px;letter-spacing:-.08em}.orb small{position:absolute;bottom:42px;font:700 9px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em}.onboarding-copy{position:relative;z-index:3}.onboarding-copy h2{font-size:42px;line-height:.92;letter-spacing:-.065em;margin:0 0 14px}.onboarding-copy p{color:#9a9ca3;line-height:1.55;font-size:12px;margin:0;max-width:28ch}.onboarding-dots{display:flex;gap:7px;margin:24px 0 18px}.onboarding-dots span{width:7px;height:7px;border-radius:50%;background:#42444a}.onboarding-dots span.active{width:24px;border-radius:8px;background:var(--orange)}
+
+/* login */
+.login-screen{min-height:100%;padding:32px 20px 24px;background:#f5f3ee;display:flex;flex-direction:column}.login-head{margin-top:28px}.login-head .logo-big{width:62px;height:62px;border-radius:19px;background:#111216;color:var(--orange);display:grid;place-items:center;font-size:25px;font-weight:950;margin-bottom:30px}.login-head h2{font-size:42px;line-height:.92;letter-spacing:-.065em;margin:0}.login-head p{font-size:12px;line-height:1.55;color:#80828a;margin:16px 0 0}.form{display:grid;gap:12px;margin-top:38px}.field{display:grid;gap:7px}.field label{font-size:9px;font-weight:800;letter-spacing:.08em;color:#75777e}.field input{height:52px;border:1px solid #d8d5ce;background:#fff;border-radius:15px;padding:0 15px;outline:0;font-size:13px}.field input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,106,42,.12)}.demo-account{margin-top:14px;padding:14px;border-radius:15px;background:#ece9e2;font-size:10px;line-height:1.5;color:#777980}.login-actions{margin-top:auto;padding-top:24px;display:grid;gap:10px}.legal-note{text-align:center;color:#a0a1a6;font-size:8px;line-height:1.45}
+
+/* home */
+.home-top{padding:8px 18px 4px}.hello-row{display:flex;justify-content:space-between;align-items:center}.hello-row h2{font-size:29px;letter-spacing:-.055em;margin:4px 0 0}.hello-row p{margin:0;color:#8b8d94;font-size:10px}.week-strip{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:18px 0 12px}.day{display:grid;place-items:center;gap:8px;padding:9px 0;border-radius:14px;color:#8a8c92}.day small{font-size:8px;font-weight:800}.day strong{font-size:11px}.day.today{background:#111216;color:#fff}.day.today strong{color:var(--orange)}.day.completed:after{content:"";width:5px;height:5px;background:var(--orange);border-radius:50%}.today-card{margin:10px 18px 0;border-radius:28px;background:#111216;color:#fff;padding:21px;position:relative;overflow:hidden;box-shadow:0 16px 28px rgba(17,18,22,.14)}.today-card:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-76px;top:-70px;border:28px solid var(--orange);opacity:.9}.today-card-top{display:flex;justify-content:space-between;position:relative;z-index:2}.today-card h3{font-size:29px;line-height:.94;letter-spacing:-.055em;margin:22px 0 13px;position:relative;z-index:2}.today-card p{font-size:10px;color:#9d9fa5;margin:0 0 20px;position:relative;z-index:2}.workout-meta{display:flex;gap:14px;color:#bbbcc0;font-size:9px;margin-bottom:18px;position:relative;z-index:2}.today-card .btn{position:relative;z-index:2}.rest-card:after{border-color:#353840}.rest-card .btn{background:#2b2d33;color:#fff}.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:18px}.metric{padding:16px;border-radius:20px;background:#fff;border:1px solid var(--line)}.metric small{display:block;color:#92949a;font-size:8px;font-weight:800;letter-spacing:.07em}.metric strong{display:block;font-size:27px;letter-spacing:-.055em;margin-top:8px}.metric em{font-style:normal;color:#8d8f95;font-size:9px}.metric.orange-metric{background:var(--orange-soft);border-color:#ffd9c7}.metric.orange-metric strong{color:#e94e08}.home-section{padding:0 18px;margin-top:22px}.home-section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:12px}.home-section-head h3{font-size:17px;letter-spacing:-.035em;margin:0}.history-mini{display:grid;gap:8px}.history-row{display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #e2dfd8}.history-icon{width:40px;height:40px;border-radius:14px;background:#ece9e2;display:grid;place-items:center;color:var(--orange)}.history-row h4{font-size:11px;margin:0 0 3px}.history-row p{font-size:8px;color:#93959b;margin:0}.history-row time{font:700 8px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#a0a2a7}
+
+/* plan */
+.plan-hero{padding:12px 18px 20px;background:#111216;color:#fff;border-radius:0 0 28px 28px}.plan-hero h2{font-size:34px;letter-spacing:-.06em;margin:12px 0 8px}.plan-hero p{font-size:10px;color:#8f9299;line-height:1.5;margin:0}.plan-progress{display:flex;align-items:center;gap:14px;margin-top:20px}.progress-ring{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--orange) var(--progress,57%),#2b2d34 0);position:relative}.progress-ring:after{content:"";position:absolute;inset:7px;border-radius:50%;background:#111216}.progress-ring strong{position:relative;z-index:2;font-size:17px}.plan-progress div:last-child strong{display:block;font-size:13px}.plan-progress div:last-child span{font-size:9px;color:#8f9298}.plan-list{padding:18px;display:grid;gap:10px}.plan-day{display:grid;grid-template-columns:45px 1fr auto;gap:12px;align-items:center;padding:14px;border-radius:19px;background:#fff;border:1px solid var(--line)}.plan-day.today{border-color:#ffb692;box-shadow:0 0 0 2px rgba(255,106,42,.08)}.plan-day.done{opacity:.72}.plan-date{display:grid;place-items:center;width:43px;height:43px;border-radius:14px;background:#eeece6}.plan-day.today .plan-date{background:var(--orange);color:#111}.plan-date small{font-size:7px;font-weight:800}.plan-date strong{font-size:14px}.plan-day h3{font-size:11px;margin:0 0 4px}.plan-day p{font-size:8px;color:#92949a;margin:0}.plan-state{font-size:8px;font-weight:800;color:#9a9ca1}.plan-state.active{color:#e95613}.plan-state.done{color:#43ad70}
+
+/* workout detail/session */
+.workout-hero{background:#111216;color:#fff;padding:18px 18px 24px;border-radius:0 0 28px 28px}.back-row{display:flex;justify-content:space-between;align-items:center}.back-btn{border:0;background:#25272d;color:#fff;width:40px;height:40px;border-radius:14px;display:grid;place-items:center;cursor:pointer}.workout-hero h2{font-size:38px;line-height:.9;letter-spacing:-.065em;margin:28px 0 12px}.workout-hero p{color:#93959c;font-size:10px;line-height:1.5}.hero-meta{display:flex;gap:9px;margin-top:18px}.hero-meta .pill{background:#24262d;color:#c8c9cd}.exercise-list{padding:18px;display:grid;gap:9px}.exercise-card{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:12px;padding:13px;border-radius:18px;background:#fff;border:1px solid var(--line)}.exercise-num{width:42px;height:42px;border-radius:14px;background:#eeeae4;display:grid;place-items:center;font-weight:900;font-size:11px}.exercise-card:first-child .exercise-num{background:var(--orange);color:#111}.exercise-card h3{font-size:11px;margin:0 0 4px}.exercise-card p{font-size:8px;color:#8e9096;margin:0}.exercise-card strong{font-size:9px}.workout-footer{padding:0 18px 22px}
+.session{min-height:100%;background:#111216;color:#fff;display:flex;flex-direction:column}.session-head{padding:17px 18px 0;display:flex;align-items:center;justify-content:space-between}.session-timer{font:700 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#d7d8db}.session-progress{height:4px;background:#292b32;margin:15px 18px 0;border-radius:99px;overflow:hidden}.session-progress span{display:block;height:100%;background:var(--orange);width:var(--session-progress,0);transition:.35s ease}.session-main{flex:1;padding:26px 18px 20px;display:flex;flex-direction:column}.session-kicker{font:700 9px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;color:var(--orange)}.session h2{font-size:43px;line-height:.88;letter-spacing:-.07em;margin:16px 0 13px}.session-desc{font-size:10px;line-height:1.5;color:#96989f;margin:0}.set-box{margin:30px 0 18px;border-radius:26px;background:#1c1e24;padding:21px}.set-box-top{display:flex;justify-content:space-between;align-items:center}.set-box small{color:#858891;font-size:8px;font-weight:800;letter-spacing:.08em}.set-box strong{font-size:13px}.rep-display{font-size:72px;line-height:1;letter-spacing:-.075em;font-weight:900;margin:24px 0 6px}.rep-display span{font-size:13px;color:#7e8189;letter-spacing:0}.set-dots{display:flex;gap:7px;margin-top:17px}.set-dots span{width:32px;height:5px;border-radius:99px;background:#30323a}.set-dots span.done{background:var(--orange)}.session-actions{margin-top:auto;display:grid;grid-template-columns:1fr 2fr;gap:8px}.session-note{text-align:center;color:#60636b;font-size:8px;margin-top:12px}
+.complete{min-height:100%;background:var(--orange);padding:26px 20px 22px;display:flex;flex-direction:column;color:#111216}.complete-mark{width:76px;height:76px;border-radius:50%;background:#111216;color:var(--orange);display:grid;place-items:center;font-size:36px;margin:48px 0 24px}.complete h2{font-size:48px;line-height:.86;letter-spacing:-.075em;margin:0}.complete p{font-size:11px;line-height:1.55;margin:16px 0;color:#6a3117;max-width:28ch}.complete-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:28px}.complete-stat{padding:14px 10px;border-radius:18px;background:rgba(17,18,22,.09)}.complete-stat small{font-size:7px;font-weight:800;letter-spacing:.07em}.complete-stat strong{display:block;font-size:22px;margin-top:6px;letter-spacing:-.05em}.complete-actions{margin-top:auto;display:grid;gap:8px}.complete .btn-primary{background:#111216;color:#fff}
+
+/* stats */
+.stats-hero{padding:10px 18px 20px}.stats-hero h2{font-size:34px;letter-spacing:-.06em;margin:8px 0 0}.stats-summary{margin:10px 18px 0;padding:20px;border-radius:26px;background:#111216;color:#fff}.stats-summary-top{display:flex;justify-content:space-between;align-items:start}.stats-summary strong.big{font-size:56px;line-height:1;letter-spacing:-.07em}.stats-summary .change{color:var(--green);font-size:9px;font-weight:750}.bar-chart{height:128px;display:flex;align-items:end;gap:8px;margin-top:24px;border-bottom:1px solid #2d3037;padding-bottom:12px}.bar-col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:7px}.bar{width:100%;max-width:25px;height:var(--h);min-height:4px;border-radius:8px 8px 3px 3px;background:#343740}.bar.active{background:var(--orange)}.bar-col small{font-size:7px;color:#72757e}.stats-cards{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:18px}.stats-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px}.stats-card small{font-size:8px;color:#8b8d93;font-weight:800}.stats-card strong{display:block;font-size:27px;letter-spacing:-.055em;margin:8px 0 2px}.stats-card span{font-size:8px;color:#9b9da2}.trend-card{margin:0 18px 20px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:17px}.trend-card h3{font-size:13px;margin:0}.trend-card p{font-size:9px;color:#909299;margin:5px 0 18px}.sparkline{height:70px;width:100%}.sparkline path.line{fill:none;stroke:var(--orange);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.sparkline path.area{fill:url(#areaGrad)}
+
+/* history */
+.history-head{padding:10px 18px 18px}.history-head h2{font-size:34px;letter-spacing:-.06em;margin:8px 0 0}.history-filter{display:flex;gap:7px;margin-top:16px;overflow:auto;scrollbar-width:none}.history-filter button{border:0;border-radius:999px;background:#e7e4dd;padding:8px 12px;font-size:8px;font-weight:800;white-space:nowrap}.history-filter button.active{background:#111216;color:#fff}.history-list{padding:0 18px 18px;display:grid;gap:10px}.history-item{padding:16px;border-radius:20px;background:#fff;border:1px solid var(--line)}.history-item-top{display:flex;justify-content:space-between;align-items:start}.history-item h3{font-size:12px;margin:0 0 4px}.history-item time{font:700 8px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#96989e}.history-item p{font-size:8px;color:#94969c;margin:0}.history-item-meta{display:flex;gap:14px;margin-top:14px;padding-top:12px;border-top:1px solid #ece9e2}.history-item-meta div{display:grid;gap:3px}.history-item-meta small{font-size:7px;color:#9b9da2}.history-item-meta strong{font-size:10px}
+
+/* profile */
+.profile-hero{background:#111216;color:#fff;padding:26px 18px 24px;border-radius:0 0 28px 28px}.profile-user{display:flex;align-items:center;gap:13px}.profile-user .avatar{width:58px;height:58px;border-radius:19px;background:var(--orange);color:#111216;font-size:17px}.profile-user h2{font-size:18px;margin:0 0 4px}.profile-user p{font-size:9px;color:#898c93;margin:0}.profile-goal{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:22px}.profile-goal div{border-radius:17px;background:#1c1e24;padding:13px}.profile-goal small{font-size:7px;color:#777a82}.profile-goal strong{display:block;font-size:15px;margin-top:5px}.settings{padding:18px;display:grid;gap:16px}.settings-group h3{font-size:9px;color:#92949a;letter-spacing:.08em;margin:0 0 8px}.setting-row{min-height:52px;background:#fff;border-bottom:1px solid #ece9e2;display:flex;align-items:center;justify-content:space-between;padding:0 13px}.setting-row:first-of-type{border-radius:17px 17px 0 0}.setting-row:last-of-type{border-radius:0 0 17px 17px;border-bottom:0}.setting-row:only-of-type{border-radius:17px}.setting-row strong{font-size:10px}.setting-row span{font-size:9px;color:#989aa0}.toggle{width:38px;height:22px;border-radius:999px;border:0;background:#d7d4cd;padding:3px;cursor:pointer}.toggle:before{content:"";display:block;width:16px;height:16px;border-radius:50%;background:#fff;transition:.2s ease}.toggle.on{background:var(--orange)}.toggle.on:before{transform:translateX(16px)}.danger{color:#d64d4d!important}.concept-note-app{padding:0 18px 20px;color:#9b9da2;font-size:8px;line-height:1.5}
+
+.noscript{position:fixed;inset:0;display:grid;place-items:center;background:#111;color:#fff;padding:30px;text-align:center;z-index:999}
+
+@media(max-width:1040px) and (min-width:901px){.demo-copy{width:34vw}.demo-proof{grid-template-columns:1fr}.demo-proof div:nth-child(n+2){display:none}.device-stage{margin-left:39vw}.phone{width:min(390px,36vw)}}
+@media(max-width:900px){
+  html,body{background:var(--paper);overflow:hidden}.desktop-shell{display:none}.device-stage{margin:0;padding:0;display:block;min-height:100svh}.phone{width:100%;height:100svh;min-height:0;border-radius:0;box-shadow:none;background:var(--paper)}.phone:before{display:none}.phone-status{height:max(30px,env(safe-area-inset-top));flex-basis:max(30px,env(safe-area-inset-top));padding:0 18px 5px}.bottom-nav{left:8px;right:8px;bottom:max(6px,env(safe-area-inset-bottom));height:68px;border-radius:24px}.app-view{padding-bottom:calc(84px + env(safe-area-inset-bottom))}.onboarding{min-height:calc(100svh - 30px)}
+}
+@media(max-width:360px){.screen{padding-left:14px;padding-right:14px}.today-card,.metric-grid,.home-section,.plan-list,.exercise-list,.workout-footer,.stats-summary,.stats-cards,.trend-card,.history-head,.history-list,.settings,.concept-note-app{margin-left:14px;margin-right:14px;padding-left:0;padding-right:0}.today-card{padding:18px}.metric-grid,.stats-cards{margin-left:14px;margin-right:14px}.plan-list,.exercise-list,.history-list,.settings{padding-left:14px;padding-right:14px;margin:0}.trend-card{padding:15px}.home-section{padding:0}.stats-card{padding:13px}.session h2{font-size:38px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* V2 Chinese experience tuning */
+html[lang="zh-CN"] .eyebrow-app{letter-spacing:.08em;text-transform:none}
+html[lang="zh-CN"] .onboarding-copy h2{font-size:37px;line-height:1.08;letter-spacing:-.035em}
+html[lang="zh-CN"] .onboarding-copy p{font-size:12px;line-height:1.72;max-width:30ch}
+html[lang="zh-CN"] .orb small{letter-spacing:.08em}
+html[lang="zh-CN"] .login-head h2{font-size:38px;line-height:1.08;letter-spacing:-.035em}
+html[lang="zh-CN"] .login-head p{line-height:1.72}
+html[lang="zh-CN"] .hello-row h2{letter-spacing:-.025em}
+html[lang="zh-CN"] .today-card h3{font-size:28px;line-height:1.06;letter-spacing:-.025em}
+html[lang="zh-CN"] .metric small{letter-spacing:.02em}
+html[lang="zh-CN"] .plan-hero h2,
+html[lang="zh-CN"] .stats-hero h2,
+html[lang="zh-CN"] .history-head h2{letter-spacing:-.035em}
+html[lang="zh-CN"] .plan-day h3{font-size:12px}
+html[lang="zh-CN"] .plan-day p{font-size:8.5px;line-height:1.45}
+html[lang="zh-CN"] .workout-hero h2{font-size:34px;line-height:1.05;letter-spacing:-.03em}
+html[lang="zh-CN"] .workout-hero p{font-size:10.5px;line-height:1.65}
+html[lang="zh-CN"] .exercise-card h3{font-size:12px}
+html[lang="zh-CN"] .exercise-card p{font-size:8.5px;line-height:1.5}
+html[lang="zh-CN"] .session-kicker{letter-spacing:.06em}
+html[lang="zh-CN"] .session h2{font-size:37px;line-height:1.03;letter-spacing:-.035em}
+html[lang="zh-CN"] .session-desc{font-size:10.5px;line-height:1.6}
+html[lang="zh-CN"] .set-box small{letter-spacing:.03em}
+html[lang="zh-CN"] .complete h2{font-size:42px;line-height:1.04;letter-spacing:-.04em}
+html[lang="zh-CN"] .complete p{font-size:11.5px;line-height:1.7;max-width:30ch}
+html[lang="zh-CN"] .stats-card small,
+html[lang="zh-CN"] .complete-stat small{letter-spacing:.02em}
+html[lang="zh-CN"] .history-item p{font-size:8.5px}
+html[lang="zh-CN"] .history-item-meta small{font-size:7.5px}
+html[lang="zh-CN"] .settings-group h3{letter-spacing:.04em}
+html[lang="zh-CN"] .setting-row strong{font-size:11px}
+html[lang="zh-CN"] .concept-note-app{font-size:8.5px;line-height:1.65}
+@media(max-width:360px){
+  html[lang="zh-CN"] .onboarding-copy h2{font-size:34px}
+  html[lang="zh-CN"] .session h2{font-size:34px}
+  html[lang="zh-CN"] .complete h2{font-size:39px}
+}
+
+/* Round 1 production fixes */
+.app-view{padding-bottom:20px}
+.bottom-nav{position:relative;left:auto;right:auto;bottom:auto;flex:0 0 74px;width:auto;margin:0 10px 10px;height:74px}
+.bottom-nav small{font-size:10px}
+
+/* Keep explanatory copy Chinese-readable while preserving MOTION's English brand slogan. */
+.demo-lead{font-size:clamp(14px,1.08vw,17px);line-height:1.8;max-width:36ch}
+.demo-proof small{line-height:1.35}.demo-proof strong{font-size:12px;line-height:1.5}
+
+/* Readability: the V2 microcopy was too small on a real phone. */
+.eyebrow-app{font-size:10px}
+.day small{font-size:9px}.day strong{font-size:12px}
+.today-card p{font-size:11px;line-height:1.55}.workout-meta{font-size:10px}
+.metric small{font-size:9px}.metric em{font-size:10px}
+.history-row h4{font-size:12px}.history-row p,.history-row time{font-size:9px}
+.plan-hero p{font-size:11px;line-height:1.6}.plan-progress div:last-child span{font-size:10px}
+.plan-date small{font-size:8px}.plan-day h3{font-size:12px}.plan-day p{font-size:9.5px;line-height:1.45}.plan-state{font-size:9px}
+.workout-hero p{font-size:11px;line-height:1.65}.exercise-card h3{font-size:12px}.exercise-card p{font-size:9.5px;line-height:1.45}.exercise-card strong{font-size:10px}
+.session-desc{font-size:11px}.set-box small{font-size:9px}.session-note{font-size:9px;line-height:1.45}
+.complete-stat small{font-size:8px}.complete p{font-size:12px}
+.stats-summary .change{font-size:10px}.bar-col small{font-size:8px}.stats-card small,.stats-card span{font-size:9px}.trend-card p{font-size:10px;line-height:1.5}
+.history-filter button{font-size:9px}.history-item h3{font-size:13px}.history-item p,.history-item time{font-size:9px}.history-item-meta small{font-size:8px}.history-item-meta strong{font-size:11px}
+.profile-user p{font-size:10px}.profile-goal small{font-size:8px}.settings-group h3{font-size:10px}.setting-row strong{font-size:11px}.concept-note-app{font-size:9px;line-height:1.65}
+
+/* In-app confirmation replaces browser-native confirm dialogs. */
+.confirm-layer{position:absolute;inset:0;z-index:120;display:grid;align-items:end;padding:12px;opacity:0;pointer-events:none;transition:opacity .18s ease}
+.confirm-layer[hidden]{display:none}.confirm-layer.show{opacity:1;pointer-events:auto}
+.confirm-backdrop{position:absolute;inset:0;border:0;background:rgba(8,9,11,.55);backdrop-filter:blur(4px)}
+.confirm-card{position:relative;background:#f5f3ee;border-radius:24px;padding:22px 18px 18px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.confirm-card h2{margin:9px 0 8px;font-size:24px;letter-spacing:-.04em}.confirm-card>p:not(.eyebrow-app){margin:0;color:#777980;font-size:11px;line-height:1.65}
+.confirm-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}.confirm-actions .btn{min-height:48px}
+
+/* The right desktop credit collided with the phone on common laptop widths. */
+@media(max-width:1500px){.demo-footer>span{display:none}}
+
+/* Tablet portrait is an app viewport, not a squeezed desktop showcase. */
+@media(max-width:900px){
+  html,body{background:var(--paper);overflow:hidden}
+  .desktop-shell{display:none}
+  .device-stage{margin:0;padding:0;display:block;min-height:100svh}
+  .phone{width:100%;height:100svh;min-height:0;border-radius:0;box-shadow:none;background:var(--paper)}
+  .phone:before{display:none}
+  .phone-status{height:max(30px,env(safe-area-inset-top));flex-basis:max(30px,env(safe-area-inset-top));padding:0 18px 5px}
+  .bottom-nav{flex-basis:68px;height:68px;margin:0 8px max(6px,env(safe-area-inset-bottom));border-radius:24px}
+  .app-view{padding-bottom:18px}
+  .onboarding{min-height:calc(100svh - 30px)}
+}
+
+/* Short phones/laptops need a compact first screen instead of clipped content. */
+@media(max-width:900px) and (max-height:650px){
+  .onboarding{padding:18px 20px 16px}.onboarding:after{width:240px;height:240px;right:-130px;top:92px}.onboarding-visual{min-height:190px}.orb{width:170px;height:170px}.orb strong{font-size:60px}.orb small{bottom:31px}
+  html[lang="zh-CN"] .onboarding-copy h2{font-size:31px;line-height:1.06}.onboarding-copy p{font-size:11px!important;line-height:1.55!important}.onboarding-dots{margin:14px 0 12px}.onboarding .btn{min-height:48px}
+  .login-screen{padding:20px 20px 16px}.login-head{margin-top:8px}.login-head .logo-big{width:52px;height:52px;border-radius:17px;margin-bottom:16px}.login-head h2{font-size:34px!important}.login-head p{font-size:11px;margin-top:10px}.form{margin-top:20px}.demo-account{margin-top:8px;padding:11px}.login-actions{padding-top:16px;margin-top:16px}.legal-note{font-size:8px}
+  .session-main{padding-top:18px}.set-box{margin:18px 0 12px}.rep-display{margin-top:16px}.complete-mark{margin:22px 0 16px}.complete-stats{margin-top:18px}
+}
+
+
+/* Round 1 visual correction 2 — status bar + top-section geometry */
+.phone-status{
+  height:40px;flex-basis:40px;align-items:center;padding:5px 18px 0;
+  background:var(--paper);color:#111216;border-radius:48px 48px 0 0;
+}
+.status-icons{display:flex;align-items:center;gap:5px;height:14px;color:#111216}
+.status-icon{display:block;flex:none;color:currentColor}
+.status-signal{width:15px;height:11px;fill:currentColor}
+.status-wifi{width:16px;height:12px;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.status-wifi .wifi-dot{fill:currentColor;stroke:none}
+.status-battery{width:21px;height:11px;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.status-battery .battery-fill{fill:currentColor;stroke:none}
+/* retire the old CSS-drawn glyphs completely */
+.signal,.wifi,.battery{display:none!important}
+
+/* Plan / Profile / Workout detail now use one inset-card system instead of a black slab touching the screen edges. */
+.plan-hero,.profile-hero,.workout-hero{
+  margin:8px 10px 0;
+  border-radius:26px;
+  overflow:hidden;
+}
+.plan-hero{padding:20px 20px 22px}
+.profile-hero{padding:22px 20px 21px}
+.workout-hero{padding:18px 20px 23px}
+.plan-list{padding-top:12px}
+.settings{padding-top:14px}
+.exercise-list{padding-top:12px}
+.plan-progress{margin-top:18px}
+.progress-ring{width:70px;height:70px}
+.profile-goal{margin-top:19px}
+
+/* Desktop device chrome: slightly cleaner proportions at laptop heights. */
+.phone:before{width:106px;height:24px;top:8px}
+@media(min-width:901px) and (max-height:920px){
+  .phone{height:min(800px,86svh);min-height:620px}
+  .device-stage{padding-top:62px;padding-bottom:42px}
+}
+
+/* On a real phone/tablet the operating system already owns the status area: never draw a fake second status bar. */
+@media(max-width:900px){
+  .phone-status{display:none}
+  .plan-hero,.profile-hero,.workout-hero{margin-top:10px}
+  .onboarding{min-height:100svh}
+}
+
+@media(max-width:360px){
+  .plan-hero,.profile-hero,.workout-hero{margin-left:8px;margin-right:8px;border-radius:23px}
+  .plan-hero{padding:18px 16px 20px}
+  .profile-hero{padding:19px 16px 18px}
+  .workout-hero{padding:16px 16px 21px}
+}
+
+/* Compact action labels must never break into two lines on 320px screens. */
+.session-actions .btn{white-space:nowrap;padding-left:10px;padding-right:10px}
+@media(max-width:340px){.session-actions{grid-template-columns:.9fr 1.65fr}.session-actions .btn{font-size:11px}}
+
+
+/* =========================================================
+   Round 2 visual final audit — readability + modal cleanup
+   ========================================================= */
+:root{--orange-text:#c9480b;--green-text:#247c4d}
+
+/* The light "今日训练" chip lives inside a dark card; never inherit white text. */
+.today-card .pill{
+  background:#f4f2ed;
+  color:#15161a;
+  border:1px solid rgba(255,255,255,.12);
+  font-size:10px;
+  font-weight:800;
+}
+.today-card .pill .dot{background:var(--orange)}
+
+/* Keep the two core questions intact instead of breaking a Chinese phrase in half. */
+.demo-lead b{white-space:nowrap}
+
+/* Text accents need enough contrast on white/paper surfaces. */
+.link-button{color:var(--orange-text)}
+.plan-state.active{color:var(--orange-text)}
+.plan-state.done{color:var(--green-text)}
+.plan-day.done{opacity:1;background:#faf9f6}
+
+/* Slightly strengthen the smallest functional copy. */
+.plan-day p,.exercise-card p{font-size:10px;line-height:1.5}
+.plan-state,.history-filter button{font-size:10px}
+.exercise-card strong{font-size:10.5px}
+.concept-note-app{font-size:10px;color:#72757c;line-height:1.65}
+.legal-note{font-size:9px;line-height:1.55;color:#898b91}
+
+/* A cleared toast must disappear geometrically too, not leave an empty capsule during transition. */
+.toast:empty{display:none!important}
+
+/* Session buttons: short, single-line labels at every supported width. */
+.session-actions{grid-template-columns:minmax(78px,.85fr) minmax(146px,1.65fr)}
+.session-actions .btn{white-space:nowrap!important;word-break:keep-all;line-height:1;padding-left:10px;padding-right:10px}
+@media(max-width:340px){
+  .session-actions{grid-template-columns:minmax(72px,.8fr) minmax(138px,1.55fr);gap:7px}
+  .session-actions .btn{font-size:11px;padding-left:7px;padding-right:7px}
+}
+
+/* Confirmation layer owns its stacking context; session/nav controls may never bleed through it. */
+.confirm-layer{z-index:300;isolation:isolate}
+.confirm-backdrop{z-index:0;background:rgba(8,9,11,.72);backdrop-filter:blur(7px)}
+.confirm-card{z-index:2;overflow:hidden;background:#f5f3ee}
+.confirm-actions{position:relative;z-index:3;grid-template-columns:.9fr 1.1fr}
+.confirm-actions .btn{white-space:nowrap;word-break:keep-all;font-size:12px}
+.phone.confirm-open .session-actions,.phone.confirm-open .bottom-nav{visibility:hidden}
+
+/* Completion body copy needs stronger contrast against the orange field. */
+.complete>p:not(.eyebrow-app){color:#492211}
+
+/* At user-reported laptop widths, remove the nonessential right footer credit before it can crowd the device. */
+@media(max-width:1850px){.demo-footer>span{display:none}}
+
+/* Phone/tablet detail text should not regress to microcopy. */
+@media(max-width:900px){
+  .plan-day h3,.exercise-card h3{font-size:12.5px}
+  .plan-day p,.exercise-card p{font-size:10.5px}
+  .plan-state{font-size:10px}
+}
+
+
+/* Round 2 readability pass for light-surface microcopy. */
+.login-screen .eyebrow-app,.stats-hero .eyebrow-app,.history-head .eyebrow-app{color:#666970}
+.hello-row p,.metric small,.metric em,.history-row p,.history-row time,
+.plan-day p,.exercise-card p,.stats-card small,.stats-card span,
+.history-item p,.history-item time,.history-item-meta small,.settings-group h3,
+.concept-note-app,.legal-note{color:#6c6f76}
+
+/* Keep useful proof visible on 1024-class desktops instead of collapsing to one item. */
+@media(max-width:1040px) and (min-width:901px){
+  .demo-proof{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .demo-proof div:nth-child(2){display:grid}
+  .demo-proof div:nth-child(3){display:none}
+  .demo-proof strong{font-size:11px}
+}
+
+
+/* Real-phone tap targets and date-strip legibility. */
+.day{color:#6c6f76}
+.link-button{min-height:36px;display:inline-flex;align-items:center;justify-content:center}
+.history-filter button{min-height:34px}
+.back-btn{width:44px;height:44px}
+
+
+/* =========================================================
+   Round 3 final visual audit — narrow stats + safe area
+   ========================================================= */
+@media(max-width:360px){
+  .stats-summary{padding:18px 14px}
+  .stats-summary-top>div:first-child{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+  .stats-summary strong.big{font-size:52px}
+}
+@media(max-width:900px){
+  .app-view{padding-top:env(safe-area-inset-top)}
+}
+
+/* =========================================================
+   R5 P0 FINAL — mobile/tablet bottom navigation safe area
+   The bottom nav participates in the phone flex layout, so it
+   must not reserve a second overlay-sized padding in app-view.
+   Keep the whole floating nav above the OS Home Indicator via
+   margin-bottom, and reset inherited safe-area padding inside
+   the fixed-height nav so icons/labels cannot be compressed.
+   ========================================================= */
+@media(max-width:900px){
+  .bottom-nav{
+    position:relative;
+    left:auto;
+    right:auto;
+    bottom:auto;
+    flex:0 0 68px;
+    width:auto;
+    height:68px;
+    margin:0 8px max(6px,env(safe-area-inset-bottom));
+    padding:8px 6px;
+  }
+  .app-view{padding-bottom:18px}
+  .app-view.no-nav{padding-bottom:0}
+}
+
+/* =========================================================
+   R6 P0.5 — real per-set countdown for timed exercises
+   ========================================================= */
+.set-box.timed .rep-display{font-variant-numeric:tabular-nums;letter-spacing:-.055em}
+.set-box.timed .rep-display span{font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.set-box.countdown-running{box-shadow:inset 0 0 0 1px rgba(255,106,42,.32)}
+.set-box.countdown-running .rep-display{color:#fff}
+.set-box.countdown-finished{box-shadow:inset 0 0 0 1px rgba(255,106,42,.72)}
+.set-box.countdown-finished .rep-display{color:var(--orange)}
+@media(max-width:360px){.set-box.timed .rep-display{font-size:62px}}
