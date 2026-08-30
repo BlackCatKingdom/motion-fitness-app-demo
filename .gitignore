@@ -1,0 +1,6 @@
+.DS_Store
+Thumbs.db
+.well-known/
+*.log
+*AUDIT*.txt
+ROUND*-AUDIT.txt
