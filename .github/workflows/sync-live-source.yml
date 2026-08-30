@@ -37,8 +37,9 @@ jobs:
           fetch 'https://motion.seekblack.cn/manifest.webmanifest' "$ROOT/manifest.webmanifest"
           fetch 'https://motion.seekblack.cn/robots.txt' "$ROOT/robots.txt"
           fetch 'https://motion.seekblack.cn/sw.js' "$ROOT/sw.js"
-          grep -q 'r6countdown' "$ROOT/index.html"
-          grep -q 'groupTimer' "$ROOT/assets/app.js"
+          grep -q '20260830-r6countdown' "$ROOT/index.html"
+          grep -q 'countdownRunning' "$ROOT/assets/app.js"
+          grep -q 'set-countdown-display' "$ROOT/assets/app.js"
           test -s "$ROOT/assets/app.css"
           test -s "$ROOT/assets/icon-512.png"
 
@@ -54,4 +55,4 @@ jobs:
           git commit -m 'feat: publish complete MOTION R6 source'
           git push origin main
 
-# trigger: 2026-08-30-final
+# trigger: 2026-08-30-r6-verified
